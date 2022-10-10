@@ -10,10 +10,14 @@ function Home() {
     const [country, setCountry] = useState()
     const [humidity, sethumidty] = useState()
     const [feels_like, setfeels_like] = useState()
-    const [loading, setloading] = useState(true)
-    useEffect(() => {
-        setloading(false)
-    }, [])
+    const [loading, setloading] = useState(false);
+
+      useEffect(() => {
+        setloading(true)
+        setTimeout(()=>{
+          setloading(false)
+        },2500)
+      }, [])
 
     const getdivicelocation = () => {
         navigator.geolocation.getCurrentPosition((result) => {
